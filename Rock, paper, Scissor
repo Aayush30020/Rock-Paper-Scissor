@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int player1, player2;
+
+    // Seed for random number generation
+    srand(time(NULL));
+
+    // Get choices from players
+    printf("Player 1, enter your choice (1 for Rock, 2 for Paper, 3 for Scissors): ");
+    scanf("%d", &player1);
+
+    printf("Player 2, enter your choice (1 for Rock, 2 for Paper, 3 for Scissors): ");
+    scanf("%d", &player2);
+
+    // Validate choices
+    if (player1 < 1 || player1 > 3 || player2 < 1 || player2 > 3) {
+        printf("Invalid choice. Please enter a number between 1 and 3.\n");
+        return 1; // Exit with an error code
+    }
+
+    // Determine the winner
+    if (player1 == player2) {
+        printf("It's a tie!\n");
+    } else if ((player1 == 1 && player2 == 3) || (player1 == 2 && player2 == 1) || (player1 == 3 && player2 == 2)) {
+        printf("Player 1 wins!\n");
+    } else {
+        printf("Player 2 wins!\n");
+    }
+
+    return 0; // Exit successfully
+}
